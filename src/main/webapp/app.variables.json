@@ -1,0 +1,790 @@
+{
+	"goToPage_Main": {
+		"name": "goToPage_Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"pageTransitions": "none",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage_Main-wm.NavigationVariable1389180517517"
+	},
+	"supportedLocale": {
+		"name": "supportedLocale",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"en": "English"
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+	},
+	"RegFormDBUserDetailsData": {
+		"name": "RegFormDBUserDetailsData",
+		"type": "UserDetails",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "userDetails",
+				"fields": [
+					{
+						"name": "id",
+						"type": "number"
+					},
+					{
+						"name": "email",
+						"type": "string"
+					},
+					{
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"name": "firstname",
+						"type": "string"
+					},
+					{
+						"name": "lastname",
+						"type": "string"
+					},
+					{
+						"name": "dob",
+						"type": "date"
+					},
+					{
+						"name": "gender",
+						"type": "string"
+					},
+					{
+						"name": "password",
+						"type": "string"
+					},
+					{
+						"name": "homeDoor",
+						"type": "string"
+					},
+					{
+						"name": "homeCity",
+						"type": "string"
+					},
+					{
+						"name": "homeState",
+						"type": "string"
+					},
+					{
+						"name": "homePincode",
+						"type": "number"
+					},
+					{
+						"name": "officeDoor",
+						"type": "string"
+					},
+					{
+						"name": "officeLocation",
+						"type": "string"
+					},
+					{
+						"name": "officeCity",
+						"type": "string"
+					},
+					{
+						"name": "officeState",
+						"type": "string"
+					},
+					{
+						"name": "officePincode",
+						"type": "number"
+					},
+					{
+						"name": "mobile",
+						"type": "number"
+					},
+					{
+						"name": "landline",
+						"type": "number"
+					},
+					{
+						"name": "emerPersonName",
+						"type": "string"
+					},
+					{
+						"name": "emerRelation",
+						"type": "string"
+					},
+					{
+						"name": "emerContactMobile",
+						"type": "string"
+					},
+					{
+						"name": "emerContactLandline",
+						"type": "string"
+					},
+					{
+						"name": "homeLocation",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": false,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "regFormDB",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "MySQL",
+		"_id": "wm-RegFormDBUserDetailsData-wm.LiveVariable-1447335315900",
+		"package": "com.registrationform.regformdb.UserDetails",
+		"tableName": "userDetails",
+		"tableType": "TABLE",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "id",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "ID",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "identity",
+					"isRelated": false,
+					"defaultValue": ""
+				},
+				{
+					"fieldName": "email",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "email",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "username",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "username",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "firstname",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "firstname",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "lastname",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "lastname",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "dob",
+					"type": "date",
+					"hibernateType": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "DOB",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 10,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "gender",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "gender",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "password",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "password",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "homeDoor",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "homeDoor",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "homeCity",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "homeCity",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "homeState",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "homeState",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "homePincode",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "homePincode",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "officeDoor",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "officeDoor",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "officeLocation",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "officeLocation",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "officeCity",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "officeCity",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "officeState",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "officeState",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "officePincode",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "officePincode",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "mobile",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "mobile",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "landline",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "landline",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": "0"
+				},
+				{
+					"fieldName": "emerPersonName",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "emerPersonName",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "emerRelation",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "emerRelation",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "emerContactMobile",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "emerContactMobile",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "emerContactLandline",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "emerContactLandline",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				},
+				{
+					"fieldName": "homeLocation",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "homeLocation",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [
+				"id"
+			],
+			"entityName": "UserDetails",
+			"fullyQualifiedName": "com.registrationform.regformdb.UserDetails",
+			"tableType": "TABLE"
+		},
+		"bindCount": 4,
+		"filterFields": {}
+	},
+	"GroupktInvoke": {
+		"name": "GroupktInvoke",
+		"type": "groupkt.RootResponse",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "groupkt",
+		"operation": "invoke",
+		"operationType": "get",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"methodType": "get",
+			"name": "invoke",
+			"relativePath": "/groupkt/invoke",
+			"consumes": [
+				"text/xml"
+			],
+			"parameters": []
+		},
+		"_id": "wm-GroupktInvoke-wm.ServiceVariable-1447348733719"
+	},
+	"RegFormDBExecuteEmailIDexistCheck": {
+		"name": "RegFormDBExecuteEmailIDexistCheck",
+		"type": "regFormDBemailIDexistCheckrtnType",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "emailID",
+						"type": "string"
+					},
+					{
+						"name": "page",
+						"type": "integer"
+					},
+					{
+						"name": "size",
+						"type": "integer"
+					},
+					{
+						"name": "sort",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "regFormDB",
+		"operation": "executeEmailIDexistCheck",
+		"operationType": "get",
+		"startUpdate": false,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onSuccess": "RegFormDBExecuteEmailIDexistCheckonSuccess($event, $scope)",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"methodType": "get",
+			"name": "executeEmailIDexistCheck",
+			"relativePath": "/regFormDB/queryExecutor/queries/emailIDexistCheck",
+			"parameters": [
+				{
+					"name": "emailID",
+					"parameterType": "query",
+					"type": "string"
+				},
+				{
+					"name": "page",
+					"parameterType": "query",
+					"type": "integer"
+				},
+				{
+					"name": "size",
+					"parameterType": "query",
+					"type": "integer"
+				},
+				{
+					"name": "sort",
+					"parameterType": "query",
+					"type": "string"
+				}
+			]
+		},
+		"_id": "wm-RegFormDBExecuteEmailIDexistCheck-wm.ServiceVariable-1447392538066"
+	},
+	"RegFormDBExecuteUsernameExistCheck": {
+		"name": "RegFormDBExecuteUsernameExistCheck",
+		"type": "regFormDBusernameExistCheckrtnType",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"name": "page",
+						"type": "integer"
+					},
+					{
+						"name": "size",
+						"type": "integer"
+					},
+					{
+						"name": "sort",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "regFormDB",
+		"operation": "executeUsernameExistCheck",
+		"operationType": "get",
+		"startUpdate": false,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onSuccess": "RegFormDBExecuteUsernameExistCheckonSuccess($event, $scope)",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"isDefault": true,
+		"wmServiceOperationInfo": {
+			"methodType": "get",
+			"name": "executeUsernameExistCheck",
+			"relativePath": "/regFormDB/queryExecutor/queries/usernameExistCheck",
+			"parameters": [
+				{
+					"name": "username",
+					"parameterType": "query",
+					"type": "string"
+				},
+				{
+					"name": "page",
+					"parameterType": "query",
+					"type": "integer"
+				},
+				{
+					"name": "size",
+					"parameterType": "query",
+					"type": "integer"
+				},
+				{
+					"name": "sort",
+					"parameterType": "query",
+					"type": "string"
+				}
+			]
+		},
+		"_id": "wm-RegFormDBExecuteUsernameExistCheck-wm.ServiceVariable-1447395688166"
+	},
+	"goToPage_Page": {
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Page",
+		"dataBinding": {},
+		"pageTransitions": "none",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage_Page-wm.NavigationVariable-1447420906137"
+	},
+	"loginVariable": {
+		"type": "string",
+		"owner": "App",
+		"dataSet": {
+			"username": "",
+			"password": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "username",
+						"type": "string"
+					},
+					{
+						"name": "password",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"startUpdate": false,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"onError": "Javascript",
+		"useDefaultSuccessHandler": false,
+		"category": "wm.LoginVariable",
+		"_id": "wm-loginVariable-wm.LoginVariable-1447420940609"
+	},
+	"logoutVariable": {
+		"type": "string",
+		"owner": "App",
+		"saveInPhonegap": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"redirectTo": "Login",
+		"useDefaultSuccessHandler": true,
+		"category": "wm.LogoutVariable",
+		"_id": "wm-logoutVariable-wm.LogoutVariable-1447420940610"
+	},
+	"loggedInUser": {
+		"name": "loggedInUser",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"name": "",
+			"id": "",
+			"tenantId": "",
+			"isAuthenticated": false,
+			"isSecurityEnabled": true,
+			"roles": []
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-loggedInUser-wm.Variable-1447420940610"
+	}
+}

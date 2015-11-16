@@ -1,0 +1,318 @@
+<style id="Main.css">
+
+</style>
+<script id="Main.js">
+Application.$controller("MainPageController", ["$scope", function($scope) {
+    "use strict";
+
+    /* perform any action with the variables inside this block(on-page-load) */
+    $scope.onPageVariablesReady = function() {
+        /*
+         * variables can be accessed through '$scope.Variables' property here
+         * e.g. $scope.Variables.staticVariable1.getData()
+         */
+    };
+
+    /* perform any action with widgets inside this block */
+    $scope.onPageReady = function() {
+        /*
+         * widgets can be accessed through '$scope.Widgets' property here
+         * e.g. $scope.Widgets.byId(), $scope.Widgets.byName()or access widgets by $scope.Widgets.widgetName
+         */
+    };
+
+
+    $scope.UserDetailsLiveform1Beforeservicecall = function($event, $operation, $data) {
+        debugger
+    };
+
+}]);
+
+
+Application.$controller("UserDetailsGrid1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("UserDetailsLiveform1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+
+
+        $scope.emailChange = function($event, $isolateScope) {
+            //debugger
+            //if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/.test($isolateScope.datavalue) === true) {
+            $scope.Variables.RegFormDBExecuteEmailIDexistCheck.setInput("emailID", $isolateScope.datavalue);
+            $scope.Variables.RegFormDBExecuteEmailIDexistCheck.update();
+            /*} else {
+                $scope.Widgets.message1.caption = "Please provide valid Email"
+            }*/
+        };
+
+
+        $scope.usernameChange = function($event, $isolateScope) {
+            $scope.Variables.RegFormDBExecuteUsernameExistCheck.setInput("username", $isolateScope.datavalue);
+            $scope.Variables.RegFormDBExecuteUsernameExistCheck.update();
+        };
+
+
+
+
+
+        $scope.emerRelationChange = function($event, $isolateScope) {
+            if ($isolateScope.datavalue === "Other") {
+                $scope.Widgets.text1.show = true;
+                $(".otherRelation").prop('required', true);
+            }
+        };
+
+
+        $scope.custom1Change = function($event, $isolateScope) {
+            //debugger
+            if ($scope.Widgets.UserDetailsLiveform1.Widgets.password.datavalue === $isolateScope.datavalue) {
+                $scope.Widgets.message1.show = false;
+            } else {
+                $scope.Widgets.message1.caption = "Passwords does not match";
+                $scope.Widgets.message1.show = true;
+            }
+        };
+
+    }
+]);
+</script>
+<script id="Main.variables.json">
+var _MainPage_Variables_ ={
+	"staticVariable1": {
+		"name": "staticVariable1",
+		"type": "string",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": [
+			{
+				"dataValue": "Father"
+			},
+			{
+				"dataValue": "Mother"
+			},
+			{
+				"dataValue": "Brother"
+			},
+			{
+				"dataValue": "Sister"
+			},
+			{
+				"dataValue": "Spouse"
+			},
+			{
+				"dataValue": "Son"
+			},
+			{
+				"dataValue": "Daughter"
+			},
+			{
+				"dataValue": "Other"
+			}
+		],
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				],
+				"type": "object",
+				"isList": true
+			}
+		],
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-staticVariable1-wm.Variable-1447349157952"
+	}
+}
+</script>
+<script id="Main.html" type="text/ng-template">
+<wm-page data-ng-controller="MainPageController" pagetitle="Main" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1">
+            <wm-livegrid name="UserDetailsLivegrid1" service="regFormDB@UserDetails">
+                <wm-grid deleterow="true" updaterow="true" insertrow="true" gridfirstrowselect="true" readonlygrid="false" name="UserDetailsGrid1" dataset="bind:Variables.RegFormDBUserDetailsData.dataSet" show="false">
+                    <wm-grid-column binding="id" caption="Id" type="integer" primary-key="true" generator="identity" readonly="true" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="email" caption="Email" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="username" caption="Username" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="firstname" caption="Firstname" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="lastname" caption="Lastname" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="dob" caption="Dob" type="date" generator="assigned" readonly="false" datepattern="yyyy-MM-dd" formatpattern="toDate" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="gender" caption="Gender" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="password" caption="Password" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="homeDoor" caption="Home Door" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-column binding="homeCity" caption="Home City" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                </wm-grid>
+                <wm-liveform novalidate="false" title="Form" name="UserDetailsLiveform1" dataset="bind:Variables.RegFormDBUserDetailsData.dataSet" formtype="inline" defaultmode="Edit" captionalign="left" captionposition="left" insertmessage="User registered successfully"
+                updatemessage="User registered successfully" deletemessage="User registered successfully" on-beforeservicecall="UserDetailsLiveform1Beforeservicecall($event, $operation, $data)" horizontalalign="left" autocomplete="false" iconclass="glyphicon glyphicon-user"
+                whitespace="pre-line">
+                    <wm-layoutgrid name="layoutgrid1">
+                        <wm-gridrow name="gridrow11">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn14">
+                                <wm-message name="message1" show="false" type="error"></wm-message>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn show="hide" name="gridcolumn1" columnwidth="12"></wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn2" columnwidth="12">
+                                <wm-form-field display-name="Email Address" show="true" primary-key="false" generator="assigned" key="email" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter Email Address"
+                                multiple="false" regexp=".*" on-change="emailChange($event, $scope)" name="form_field1"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow2">
+                            <wm-gridcolumn show="show" name="gridcolumn3" columnwidth="12">
+                                <wm-form-field display-name="Username" show="true" primary-key="false" generator="assigned" key="username" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter Username" multiple="false"
+                                regexp=".*" on-change="usernameChange($event, $scope)" name="form_field2"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow3">
+                            <wm-gridcolumn show="show" name="gridcolumn4" columnwidth="12">
+                                <wm-form-field display-name="First Name" show="true" primary-key="false" generator="assigned" key="firstname" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter First Name" multiple="false"
+                                regexp=".*" name="form_field3"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow4">
+                            <wm-gridcolumn show="show" name="gridcolumn5" columnwidth="12">
+                                <wm-form-field show="true" primary-key="false" generator="assigned" key="lastname" type="string" maxvalue="255" is-related="false" readonly="false" required="false" placeholder="Enter Last Name" multiple="false" regexp=".*"
+                                name="form_field4"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow5">
+                            <wm-gridcolumn show="show" name="gridcolumn6" columnwidth="12">
+                                <wm-form-field display-name="Date of Birth" show="true" primary-key="false" generator="assigned" key="dob" type="date" is-related="false" readonly="false" required="true" placeholder="Select Date of Birth" outputformat="yyyy-MM-dd"
+                                multiple="false" regexp=".*" name="form_field5"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn show="show" name="gridcolumn7" columnwidth="12">
+                                <wm-form-field display-name="Gender" show="true" primary-key="false" generator="assigned" key="gender" type="string" maxvalue="255" is-related="false" readonly="false" required="true" widget-type="Radioset" placeholder="Enter Gender"
+                                dataset="Male, Female, Others" multiple="false" regexp=".*" default-value="Male" name="form_field6"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow7">
+                            <wm-gridcolumn show="show" name="gridcolumn8" columnwidth="12">
+                                <wm-form-field display-name="Password" show="true" primary-key="false" generator="assigned" key="password" type="string" maxvalue="255" is-related="false" readonly="false" required="true" widget-type="Password" placeholder="Enter Password"
+                                multiple="false" regexp=".*" name="form_field7"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow8">
+                            <wm-gridcolumn show="show" name="gridcolumn9" columnwidth="12">
+                                <wm-form-field display-name="Confirm Password" show="true" type="custom" primary-key="false" readonly="false" multiple="false" required="true" placeholder="Confirm Password" on-change="custom1Change($event, $scope)" key="custom1"
+                                regexp=".*" is-related="false" widget-type="Password" name="form_field8"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow9">
+                            <wm-gridcolumn show="show" name="gridcolumn10" columnwidth="12">
+                                <wm-tabs name="tabs1" tabsposition="top">
+                                    <wm-tabpane name="tabpane1">
+                                        <wm-tabheader name="tabheader1" heading="Addresses" isdefaulttab="true"></wm-tabheader>
+                                        <wm-tabcontent name="tabcontent1">
+                                            <wm-composite name="composite1">
+                                                <wm-label class="col-md-3" name="label2" caption="Address Type"></wm-label>
+                                                <wm-container class="col-md-9" name="container1">
+                                                    <wm-switch datavalue="Home" name="switch1" dataset="Home,Office" width="25%"></wm-switch>
+                                                </wm-container>
+                                            </wm-composite>
+                                            <wm-container name="Homecontainer3" show="bind:Widgets.switch1.datavalue === &quot;Home&quot;">
+                                                <wm-form-field display-name="Door Number" show="true" primary-key="false" generator="assigned" key="homeDoor" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Door Number"
+                                                multiple="false" regexp=".*" name="form_field9"></wm-form-field>
+                                                <wm-form-field display-name="Location" show="true" primary-key="false" generator="assigned" key="homeLocation" type="string" maxvalue="255" is-related="false" readonly="false" required="true"
+                                                placeholder="Location" multiple="false" regexp=".*" name="form_field10"></wm-form-field>
+                                                <wm-form-field display-name="City" show="true" primary-key="false" generator="assigned" key="homeCity" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="City"
+                                                multiple="false" regexp=".*" name="form_field11"></wm-form-field>
+                                                <wm-form-field display-name="State" show="true" primary-key="false" generator="assigned" key="homeState" type="string" maxvalue="255" is-related="false" readonly="false" required="true" widget-type="Select"
+                                                placeholder="Choose State" dataset="bind:Variables.GroupktInvoke.dataSet.RestResponse.result" datafield="name" displayfield="name" multiple="false" regexp=".*" name="form_field12"></wm-form-field>
+                                                <wm-form-field display-name="Pincode" show="true" primary-key="false" generator="assigned" key="homePincode" type="integer" is-related="false" readonly="false" required="true" default-value="0"
+                                                placeholder="Pincode" multiple="false" regexp=".*" step="1" name="form_field13"></wm-form-field>
+                                            </wm-container>
+                                            <wm-container name="Officecontainer4" show="bind:Widgets.switch1.datavalue === &quot;Office&quot;">
+                                                <wm-form-field display-name="Door No" show="true" primary-key="false" generator="assigned" key="officeDoor" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Door Number"
+                                                multiple="false" regexp=".*" name="form_field14"></wm-form-field>
+                                                <wm-form-field display-name="Location" show="true" primary-key="false" generator="assigned" key="officeLocation" type="string" maxvalue="255" is-related="false" readonly="false" required="true"
+                                                placeholder="Location" multiple="false" regexp=".*" name="form_field15"></wm-form-field>
+                                                <wm-form-field display-name="City" show="true" primary-key="false" generator="assigned" key="officeCity" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="City"
+                                                multiple="false" regexp=".*" name="form_field16"></wm-form-field>
+                                                <wm-form-field display-name="State" show="true" primary-key="false" generator="assigned" key="officeState" type="string" maxvalue="255" is-related="false" readonly="false" required="true"
+                                                widget-type="Select" placeholder="Choose State" dataset="bind:Variables.GroupktInvoke.dataSet.RestResponse.result" datafield="name" displayfield="name" multiple="false" regexp=".*" name="form_field17"></wm-form-field>
+                                                <wm-form-field display-name="Pincode" show="true" primary-key="false" generator="assigned" key="officePincode" type="integer" is-related="false" readonly="false" required="true" default-value="0"
+                                                placeholder="Pincode" multiple="false" regexp=".*" step="1" name="form_field18"></wm-form-field>
+                                            </wm-container>
+                                        </wm-tabcontent>
+                                    </wm-tabpane>
+                                    <wm-tabpane name="tabpane2">
+                                        <wm-tabheader name="tabheader2" heading="Contacts"></wm-tabheader>
+                                        <wm-tabcontent name="tabcontent2">
+                                            <wm-composite name="composite2">
+                                                <wm-label class="col-md-3" name="label3" caption="Contacts"></wm-label>
+                                                <wm-container class="col-md-9" name="container2">
+                                                    <wm-switch datavalue="Mobile" name="switch2" dataset="Mobile, Landline" width="25%"></wm-switch>
+                                                </wm-container>
+                                            </wm-composite>
+                                            <wm-container name="container5" show="bind:Widgets.switch2.datavalue === &quot;Mobile&quot;">
+                                                <wm-form-field display-name="Mobile" show="true" primary-key="false" generator="assigned" key="mobile" type="integer" is-related="false" readonly="false" required="true" default-value="0" placeholder="Mobile Number"
+                                                multiple="false" regexp=".*" step="1" name="form_field19"></wm-form-field>
+                                            </wm-container>
+                                            <wm-container name="container6" show="bind:Widgets.switch2.datavalue === &quot;Landline&quot;">
+                                                <wm-form-field display-name="Landline Number" show="true" type="custom" primary-key="false" readonly="false" multiple="false" required="true" placeholder="STD code" key="custom" regexp=".*" is-related="false"
+                                                widget-type="Number" name="form_field20"></wm-form-field>
+                                                <wm-form-field display-name="Landline" show="true" primary-key="false" generator="assigned" key="landline" type="integer" is-related="false" readonly="false" required="true" default-value="0"
+                                                placeholder="Landline number" multiple="false" regexp=".*" step="1" name="form_field21"></wm-form-field>
+                                            </wm-container>
+                                        </wm-tabcontent>
+                                    </wm-tabpane>
+                                    <wm-tabpane name="tabpane3">
+                                        <wm-tabheader name="tabheader3" heading="Emergency Contact"></wm-tabheader>
+                                        <wm-tabcontent name="tabcontent3">
+                                            <wm-form-field display-name="Person Name" show="true" primary-key="false" generator="assigned" key="emerPersonName" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Name"
+                                            multiple="false" regexp=".*" name="form_field22"></wm-form-field>
+                                            <wm-layoutgrid name="layoutgrid2">
+                                                <wm-gridrow name="gridrow10">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn11" horizontalalign="right">
+                                                        <wm-form-field display-name="Relation" show="true" primary-key="false" generator="assigned" key="emerRelation" type="string" maxvalue="255" is-related="false" readonly="false" required="true" widget-type="Select"
+                                                        placeholder="Relation" dataset="bind:Variables.staticVariable1.dataSet" datafield="dataValue" displayfield="dataValue" multiple="false" regexp=".*" on-change="emerRelationChange($event, $scope)"
+                                                        name="form_field23"></wm-form-field>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow12">
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn14_1">
+                                                        <wm-composite name="composite3" show="true">
+                                                            <wm-container class="col-md-9" name="container7">
+                                                                <wm-text name="text1" show="false" class="otherRelation"></wm-text>
+                                                            </wm-container>
+                                                        </wm-composite>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn15"></wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                            <wm-form-field display-name="Mobile" show="true" primary-key="false" generator="assigned" key="emerContactMobile" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Mobile Number"
+                                            multiple="false" regexp=".*" name="form_field24"></wm-form-field>
+                                            <wm-form-field display-name="Landline" show="true" primary-key="false" generator="assigned" key="emerContactLandline" type="string" maxvalue="255" is-related="false" readonly="false" required="true"
+                                            placeholder="Landline Number" multiple="false" regexp=".*" name="form_field25"></wm-form-field>
+                                        </wm-tabcontent>
+                                    </wm-tabpane>
+                                </wm-tabs>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field display-name="Id" show="false" primary-key="true" generator="identity" key="id" type="integer" is-related="false" readonly="true" required="true" placeholder="Enter value" multiple="false" regexp=".*" step="1" name="form_field26"></wm-form-field>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="glyphicon glyphicon-save" type="submit" update-mode="true"></wm-form-action>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="glyphicon glyphicon-remove-circle" action="cancel()" type="button" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livegrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>
+</script>

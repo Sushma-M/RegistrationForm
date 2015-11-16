@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="groupkt" type="RestService" springFile="groupkt.spring.xml">
+    <operation name="invoke">
+        <return typeRef="groupkt.RootResponse" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="groupkt.RestResponse" name="RestResponse" supportsQuickData="false">
+            <element name="result" typeRef="groupkt.resultEntryItem" isList="true" allowNull="false"/>
+            <element name="messages" typeRef="java.lang.String" isList="true" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="groupkt.RootResponse" name="RootResponse" supportsQuickData="false">
+            <element name="RestResponse" typeRef="groupkt.RestResponse" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="groupkt.resultEntryItem" name="resultEntryItem" supportsQuickData="false">
+            <element name="largest_city" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="area" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="abbr" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="capital" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="country" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

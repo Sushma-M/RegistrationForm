@@ -1,0 +1,101 @@
+<style id="Page.css">
+
+
+</style>
+<script id="Page.js">
+Application.$controller("PagePageController", ["$scope", function ($scope) {
+    "use strict";
+
+    /* perform any action on the variables within this block(on-page-load) */
+    $scope.onPageVariablesReady = function () {
+        /*
+         * variables can be accessed through '$scope.Variables' property here
+         * e.g. to get data in a static variable named 'loggedInUser' use following script
+         * $scope.Variables.loggedInUser.getData()
+         */
+    };
+    /* perform any action on widgets within this block */
+    $scope.onPageReady = function () {
+        /*
+         * widgets can be accessed through '$scope.Widgets' property here
+         * e.g. to get value of text widget named 'username' use following script
+         * '$scope.Widgets.username.datavalue'
+         */
+    };
+
+}]);
+
+Application.$controller("loginFormController", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);
+
+</script>
+<script id="Page.variables.json">
+var _PagePage_Variables_ ={
+    "loginVariable": {
+        "type": "string",
+        "owner": "Page",
+        "dataSet": {
+            "username": "",
+            "password": ""
+        },
+        "dataBinding": {
+            "username": "bind:Widgets.usernametext.datavalue",
+            "password": "bind:Widgets.passwordtext.datavalue"
+        },
+        "saveInPhonegap": false,
+        "startUpdate": false,
+        "autoUpdate": false,
+        "onError": "Javascript",
+        "useDefaultSuccessHandler": true,
+        "category": "wm.LoginVariable",
+        "_id": "wm-loginVariable-wm.LoginVariable-1398237232072"
+    }
+}
+
+</script>
+<script id="Page.html" type="text/ng-template">
+<wm-page data-ng-controller="PagePageController"> 
+    <wm-content> 
+        <wm-page-content columnwidth="12"> 
+            <wm-layoutgrid name="layoutgrid2" height="100%" backgroundimage="http://dev.wavemaker.com/templates/web/login_icon.jpg" backgroundsize="100% 100%" backgroundrepeat="no-repeat"> 
+                <wm-gridrow name="gridrow4" height="100%"> 
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn11" class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4" paddingtop="20" paddingunit="%"> 
+                        <wm-login name="loginForm"> 
+                            <wm-panel class="panel-default" collapsible="false" showheader="true" name="loginPanel" title="Sign in to continue"> 
+                                <wm-panel-footer name="panel_footer1"> 
+                                    <wm-button type="submit" caption="Sign in" width="100%" class="app-login-button btn-primary" name="button2"></wm-button> 
+                                </wm-panel-footer> 
+                                <wm-composite name="composite4_1"> 
+                                    <wm-label class="col-md-3" caption="Email" name="label3" display="block" width="100%"></wm-label> 
+                                    <wm-container class="col-md-12 input-group" name="container3_1"> 
+                                        <span class="input-group-addon"> 
+                                            <wm-icon name="icon1" iconclass="glyphicon glyphicon-envelope"></wm-icon></span> 
+                                        <wm-text placeholder="Type your email" name="usernametext" class="app-login-username" updateon="default"></wm-text> 
+                                    </wm-container> 
+                                </wm-composite> 
+                                <wm-composite name="composite5"> 
+                                    <wm-label class="col-md-3" caption="Password" name="label4" width="100%"></wm-label> 
+                                    <wm-container class="col-md-12 input-group" name="container4"> 
+                                        <span class="input-group-addon"> 
+                                            <wm-icon name="icon2" iconclass="glyphicon glyphicon-asterisk"></wm-icon></span> 
+                                        <wm-text type="password" name="passwordtext" placeholder="Type your password" class="app-login-password" updateon="default" width="100%"></wm-text> 
+                                    </wm-container> 
+                                </wm-composite> 
+                                <wm-composite name="composite6"> 
+                                    <wm-checkbox class="app-login-rememberme" scopedatavalue="user.rememberMe" name="checkbox2"></wm-checkbox> 
+                                    <wm-label caption="Remember Me" class="app-login-remembermetext" name="label5" margintop=".4" marginunit="em"></wm-label> 
+                                    <wm-anchor caption="Forgot Password" class="app-login-forgotlink" name="anchor1"></wm-anchor> 
+                                </wm-composite> 
+                            </wm-panel> 
+                        </wm-login> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+</wm-page>
+</script>
