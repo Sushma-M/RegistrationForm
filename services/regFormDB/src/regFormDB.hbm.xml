@@ -6,59 +6,17 @@
       <column name="ID" length="255" not-null="true" precision="19"/>
       <generator class="identity"/>
     </id>
-    <property name="email" type="string">
-      <column name="email" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="username" type="string">
-      <column name="username" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="firstname" type="string">
-      <column name="firstname" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="lastname" type="string">
-      <column name="lastname" length="255" not-null="false" precision="19"/>
-    </property>
     <property name="dob" type="date">
       <column name="DOB" length="10" not-null="false" precision="19"/>
     </property>
-    <property name="gender" type="string">
-      <column name="gender" length="255" not-null="false" precision="19"/>
+    <property name="email" type="string">
+      <column name="email" length="255" not-null="false" precision="19"/>
     </property>
-    <property name="password" type="string">
-      <column name="password" length="255" not-null="false" precision="19"/>
+    <property name="emerContactLandline" type="string">
+      <column name="emerContactLandline" length="255" not-null="false" precision="19"/>
     </property>
-    <property name="homeDoor" type="string">
-      <column name="homeDoor" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="homeCity" type="string">
-      <column name="homeCity" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="homeState" type="string">
-      <column name="homeState" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="homePincode" type="integer">
-      <column name="homePincode" length="255" not-null="false" precision="19" default="'0'"/>
-    </property>
-    <property name="officeDoor" type="string">
-      <column name="officeDoor" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="officeLocation" type="string">
-      <column name="officeLocation" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="officeCity" type="string">
-      <column name="officeCity" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="officeState" type="string">
-      <column name="officeState" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="officePincode" type="integer">
-      <column name="officePincode" length="255" not-null="false" precision="19" default="'0'"/>
-    </property>
-    <property name="mobile" type="integer">
-      <column name="mobile" length="255" not-null="false" precision="19" default="'0'"/>
-    </property>
-    <property name="landline" type="integer">
-      <column name="landline" length="255" not-null="false" precision="19" default="'0'"/>
+    <property name="emerContactMobile" type="string">
+      <column name="emerContactMobile" length="255" not-null="false" precision="19"/>
     </property>
     <property name="emerPersonName" type="string">
       <column name="emerPersonName" length="255" not-null="false" precision="19"/>
@@ -66,14 +24,56 @@
     <property name="emerRelation" type="string">
       <column name="emerRelation" length="255" not-null="false" precision="19"/>
     </property>
-    <property name="emerContactMobile" type="string">
-      <column name="emerContactMobile" length="255" not-null="false" precision="19"/>
+    <property name="firstname" type="string">
+      <column name="firstname" length="255" not-null="false" precision="19"/>
     </property>
-    <property name="emerContactLandline" type="string">
-      <column name="emerContactLandline" length="255" not-null="false" precision="19"/>
+    <property name="gender" type="string">
+      <column name="gender" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="homeCity" type="string">
+      <column name="homeCity" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="homeDoor" type="string">
+      <column name="homeDoor" length="255" not-null="false" precision="19"/>
     </property>
     <property name="homeLocation" type="string">
       <column name="homeLocation" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="homePincode" type="integer">
+      <column name="homePincode" length="255" not-null="false" precision="19" default="'0'"/>
+    </property>
+    <property name="homeState" type="string">
+      <column name="homeState" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="landline" type="integer">
+      <column name="landline" length="255" not-null="false" precision="19" default="'0'"/>
+    </property>
+    <property name="lastname" type="string">
+      <column name="lastname" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="mobile" type="integer">
+      <column name="mobile" length="255" not-null="false" precision="19" default="'0'"/>
+    </property>
+    <property name="officeCity" type="string">
+      <column name="officeCity" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="officeDoor" type="string">
+      <column name="officeDoor" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="officeLocation" type="string">
+      <column name="officeLocation" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="officePincode" type="integer">
+      <column name="officePincode" length="255" not-null="false" precision="19" default="'0'"/>
+    </property>
+    <property name="officeState" type="string">
+      <column name="officeState" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="password" type="string">
+      <column name="password" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="username" type="string">
+      <column name="username" length="255" not-null="false" precision="19"/>
     </property>
   </class>
 </hibernate-mapping>

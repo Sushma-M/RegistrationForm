@@ -23,7 +23,7 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 
 
     $scope.UserDetailsLiveform1Beforeservicecall = function($event, $operation, $data) {
-        debugger
+        //debugger
     };
 
 }]);
@@ -44,18 +44,27 @@ Application.$controller("UserDetailsLiveform1Controller", ["$scope",
 
         $scope.emailChange = function($event, $isolateScope) {
             //debugger
-            //if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/.test($isolateScope.datavalue) === true) {
-            $scope.Variables.RegFormDBExecuteEmailIDexistCheck.setInput("emailID", $isolateScope.datavalue);
-            $scope.Variables.RegFormDBExecuteEmailIDexistCheck.update();
-            /*} else {
-                $scope.Widgets.message1.caption = "Please provide valid Email"
-            }*/
+            if (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test($isolateScope.datavalue) === true) {
+                $scope.Variables.RegFormDBExecuteEmailIDexistCheck.setInput("emailID", $isolateScope.datavalue);
+                $scope.Variables.RegFormDBExecuteEmailIDexistCheck.update();
+            } else {
+                $scope.Widgets.message1.caption = "Please provide valid Email";
+                $scope.Widgets.message1.show = true;
+                $scope.Widgets.message2.show = false;
+                $scope.Widgets.message6.show = false;
+            }
         };
 
 
         $scope.usernameChange = function($event, $isolateScope) {
+            //debugger
+            //if ($isolateScope.datavalue > 0 || $isolateScope.datavalue !== undefined) {
             $scope.Variables.RegFormDBExecuteUsernameExistCheck.setInput("username", $isolateScope.datavalue);
             $scope.Variables.RegFormDBExecuteUsernameExistCheck.update();
+            /*} else {
+                $scope.Widgets.message7.show = false;
+                $scope.Widgets.message3.show = false;
+            }*/
         };
 
 
@@ -73,11 +82,29 @@ Application.$controller("UserDetailsLiveform1Controller", ["$scope",
         $scope.custom1Change = function($event, $isolateScope) {
             //debugger
             if ($scope.Widgets.UserDetailsLiveform1.Widgets.password.datavalue === $isolateScope.datavalue) {
-                $scope.Widgets.message1.show = false;
+                $scope.Widgets.message5.show = false;
+                $scope.Widgets.message9.show = true;
             } else {
-                $scope.Widgets.message1.caption = "Passwords does not match";
-                $scope.Widgets.message1.show = true;
+                //$scope.Widgets.message5.caption = "Passwords does not match";
+                $scope.Widgets.message5.show = true;
+                $scope.Widgets.message9.show = false;
             }
+        };
+
+        $scope.passwordChange = function($event, $isolateScope) {
+            if (/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test($isolateScope.datavalue) === true) {
+                $scope.Widgets.message4.show = false;
+                $scope.Widgets.message8.show = true;
+            } else {
+                $scope.Widgets.message4.show = true;
+                $scope.Widgets.message8.show = false;
+            }
+        };
+
+
+        $scope.dobChange = function($event, $isolateScope) {
+            debugger
+            //var diffAge  =  - $isolateScope.datavalue
         };
 
     }
@@ -153,73 +180,97 @@ var _MainPage_Variables_ ={
                     <wm-grid-column binding="password" caption="Password" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
                     <wm-grid-column binding="homeDoor" caption="Home Door" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
                     <wm-grid-column binding="homeCity" caption="Home City" type="string" generator="assigned" readonly="false" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
-                    <wm-grid-action key="addNewRow" label="New" show="true" class="btn-primary" icon="new" action="addNewRow()" type="button"></wm-grid-action>
+                    <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" icon="new" action="addNewRow()"></wm-grid-action>
                 </wm-grid>
                 <wm-liveform novalidate="false" title="Form" name="UserDetailsLiveform1" dataset="bind:Variables.RegFormDBUserDetailsData.dataSet" formtype="inline" defaultmode="Edit" captionalign="left" captionposition="left" insertmessage="User registered successfully"
                 updatemessage="User registered successfully" deletemessage="User registered successfully" on-beforeservicecall="UserDetailsLiveform1Beforeservicecall($event, $operation, $data)" horizontalalign="left" autocomplete="false" iconclass="glyphicon glyphicon-user"
                 whitespace="pre-line">
                     <wm-layoutgrid name="layoutgrid1">
                         <wm-gridrow name="gridrow11">
-                            <wm-gridcolumn columnwidth="12" name="gridcolumn14">
-                                <wm-message name="message1" show="false" type="error"></wm-message>
-                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn14"></wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn show="hide" name="gridcolumn1" columnwidth="12"></wm-gridcolumn>
-                            <wm-gridcolumn show="show" name="gridcolumn2" columnwidth="12">
+                            <wm-gridcolumn show="show" name="gridcolumn2" columnwidth="8">
                                 <wm-form-field display-name="Email Address" show="true" primary-key="false" generator="assigned" key="email" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter Email Address"
-                                multiple="false" regexp=".*" on-change="emailChange($event, $scope)" name="form_field1"></wm-form-field>
+                                multiple="false" regexp=".*" on-change="emailChange($event, $scope)" on-keypress="emailKeypress($event, $scope)" name="form_field1"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn15_1">
+                                <wm-message name="message2" type="error" show="false" caption="Email already registered"></wm-message>
+                                <wm-message name="message6" caption="Welcome!" show="false"></wm-message>
+                                <wm-message name="message1" show="false" type="error"></wm-message>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow2">
-                            <wm-gridcolumn show="show" name="gridcolumn3" columnwidth="12">
+                            <wm-gridcolumn show="show" name="gridcolumn3" columnwidth="8">
                                 <wm-form-field display-name="Username" show="true" primary-key="false" generator="assigned" key="username" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter Username" multiple="false"
                                 regexp=".*" on-change="usernameChange($event, $scope)" name="form_field2"></wm-form-field>
                             </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn16">
+                                <wm-message name="message3" type="error" show="false" caption="Username exists"></wm-message>
+                                <wm-message name="message7" caption="Name looks great!" show="false"></wm-message>
+                            </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow3">
-                            <wm-gridcolumn show="show" name="gridcolumn4" columnwidth="12">
-                                <wm-form-field display-name="First Name" show="true" primary-key="false" generator="assigned" key="firstname" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter First Name" multiple="false"
-                                regexp=".*" name="form_field3"></wm-form-field>
+                            <wm-gridcolumn show="show" name="gridcolumn4" columnwidth="8" horizontalalign="left">
+                                <wm-layoutgrid name="layoutgrid3">
+                                    <wm-gridrow name="gridrow12_1">
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn19_1" horizontalalign="left">
+                                            <wm-form-field display-name="Name" show="true" primary-key="false" generator="assigned" key="firstname" type="string" maxvalue="255" is-related="false" readonly="false" required="true" placeholder="Enter First Name"
+                                            multiple="false" regexp=".*" name="form_field3"></wm-form-field>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="6" name="gridcolumn20_1" horizontalalign="left">
+                                            <wm-form-field show="true" primary-key="false" generator="assigned" key="lastname" type="string" maxvalue="255" is-related="false" readonly="false" required="false" placeholder="Enter Last Name" multiple="false"
+                                            regexp=".*" name="form_field4"></wm-form-field>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
                             </wm-gridcolumn>
-                        </wm-gridrow>
-                        <wm-gridrow name="gridrow4">
-                            <wm-gridcolumn show="show" name="gridcolumn5" columnwidth="12">
-                                <wm-form-field show="true" primary-key="false" generator="assigned" key="lastname" type="string" maxvalue="255" is-related="false" readonly="false" required="false" placeholder="Enter Last Name" multiple="false" regexp=".*"
-                                name="form_field4"></wm-form-field>
-                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn17" horizontalalign="left"></wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow5">
-                            <wm-gridcolumn show="show" name="gridcolumn6" columnwidth="12">
+                            <wm-gridcolumn show="show" name="gridcolumn6" columnwidth="8">
                                 <wm-form-field display-name="Date of Birth" show="true" primary-key="false" generator="assigned" key="dob" type="date" is-related="false" readonly="false" required="true" placeholder="Select Date of Birth" outputformat="yyyy-MM-dd"
-                                multiple="false" regexp=".*" name="form_field5"></wm-form-field>
+                                multiple="false" regexp=".*" on-change="dobChange($event, $scope)" name="form_field5"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn21">
+                                <wm-message name="message10" caption="You are Major!" show="false"></wm-message>
+                                <wm-message name="message11" type="error" caption="You are below 18 years" show="false"></wm-message>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow6">
-                            <wm-gridcolumn show="show" name="gridcolumn7" columnwidth="12">
+                            <wm-gridcolumn show="show" name="gridcolumn7" columnwidth="8">
                                 <wm-form-field display-name="Gender" show="true" primary-key="false" generator="assigned" key="gender" type="string" maxvalue="255" is-related="false" readonly="false" required="true" widget-type="Radioset" placeholder="Enter Gender"
                                 dataset="Male, Female, Others" multiple="false" regexp=".*" default-value="Male" name="form_field6"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow7">
-                            <wm-gridcolumn show="show" name="gridcolumn8" columnwidth="12">
+                            <wm-gridcolumn show="show" name="gridcolumn8" columnwidth="8">
                                 <wm-form-field display-name="Password" show="true" primary-key="false" generator="assigned" key="password" type="string" maxvalue="255" is-related="false" readonly="false" required="true" widget-type="Password" placeholder="Enter Password"
-                                multiple="false" regexp=".*" name="form_field7"></wm-form-field>
+                                multiple="false" regexp=".*" on-change="passwordChange($event, $scope)" name="form_field7"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                                <wm-message name="message4" type="error" show="false" caption="At least one number, one lowercase and one uppercase letter, at least six characters"></wm-message>
+                                <wm-message name="message8" caption="Password is okay!" show="false"></wm-message>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow8">
-                            <wm-gridcolumn show="show" name="gridcolumn9" columnwidth="12">
+                            <wm-gridcolumn show="show" name="gridcolumn9" columnwidth="8">
                                 <wm-form-field display-name="Confirm Password" show="true" type="custom" primary-key="false" readonly="false" multiple="false" required="true" placeholder="Confirm Password" on-change="custom1Change($event, $scope)" key="custom1"
                                 regexp=".*" is-related="false" widget-type="Password" name="form_field8"></wm-form-field>
                             </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                                <wm-message name="message5" type="error" show="false" caption="Passwords does not match"></wm-message>
+                                <wm-message name="message9" caption="Passwords Matched!" show="false"></wm-message>
+                            </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow9">
-                            <wm-gridcolumn show="show" name="gridcolumn10" columnwidth="12">
-                                <wm-tabs name="tabs1" tabsposition="top">
+                            <wm-gridcolumn show="show" name="gridcolumn10" columnwidth="8">
+                                <wm-tabs name="tabs1" tabsposition="top" transition="none">
                                     <wm-tabpane name="tabpane1">
                                         <wm-tabheader name="tabheader1" heading="Addresses" isdefaulttab="true"></wm-tabheader>
                                         <wm-tabcontent name="tabcontent1">
-                                            <wm-composite name="composite1">
+                                            <wm-composite name="composite1" captionposition="left">
                                                 <wm-label class="col-md-3" name="label2" caption="Address Type"></wm-label>
                                                 <wm-container class="col-md-9" name="container1">
                                                     <wm-switch datavalue="Home" name="switch1" dataset="Home,Office" width="25%"></wm-switch>
@@ -307,10 +358,16 @@ var _MainPage_Variables_ ={
                         </wm-gridrow>
                     </wm-layoutgrid>
                     <wm-form-field display-name="Id" show="false" primary-key="true" generator="identity" key="id" type="integer" is-related="false" readonly="true" required="true" placeholder="Enter value" multiple="false" regexp=".*" step="1" name="form_field26"></wm-form-field>
+                    <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="glyphicon glyphicon-refresh" action="reset()" type="button" update-mode="true"></wm-form-action>
                     <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="glyphicon glyphicon-save" type="submit" update-mode="true"></wm-form-action>
-                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="glyphicon glyphicon-remove-circle" action="cancel()" type="button" update-mode="true"></wm-form-action>
                 </wm-liveform>
             </wm-livegrid>
+            <wm-composite name="composite4">
+                <wm-label class="col-md-3" name="label3_1"></wm-label>
+                <wm-container class="col-md-9" name="container8">
+                    <wm-date name="date1"></wm-date>
+                </wm-container>
+            </wm-composite>
         </wm-page-content>
     </wm-content>
     <wm-footer content="footer" name="footer1"></wm-footer>

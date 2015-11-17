@@ -39,29 +39,29 @@ public class UserDetails  implements java.io.Serializable
 
 
 private Integer id;
-private String email;
-private String username;
-private String firstname;
-private String lastname;
 private Date dob;
-private String gender;
-private String password;
-private String homeDoor;
-private String homeCity;
-private String homeState;
-private Integer homePincode;
-private String officeDoor;
-private String officeLocation;
-private String officeCity;
-private String officeState;
-private Integer officePincode;
-private Integer mobile;
-private Integer landline;
+private String email;
+private String emerContactLandline;
+private String emerContactMobile;
 private String emerPersonName;
 private String emerRelation;
-private String emerContactMobile;
-private String emerContactLandline;
+private String firstname;
+private String gender;
+private String homeCity;
+private String homeDoor;
 private String homeLocation;
+private Integer homePincode;
+private String homeState;
+private Integer landline;
+private String lastname;
+private Integer mobile;
+private String officeCity;
+private String officeDoor;
+private String officeLocation;
+private Integer officePincode;
+private String officeState;
+private String password;
+private String username;
 
     public UserDetails() {
     }
@@ -81,50 +81,6 @@ private String homeLocation;
         this.id = id;
     }
 
-    
-
-    @Column(name="email")
-    public String getEmail() {
-        return this.email;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    
-
-    @Column(name="username")
-    public String getUsername() {
-        return this.username;
-    }
-    
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    
-
-    @Column(name="firstname")
-    public String getFirstname() {
-        return this.firstname;
-    }
-    
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    
-
-    @Column(name="lastname")
-    public String getLastname() {
-        return this.lastname;
-    }
-    
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     @Temporal(TemporalType.DATE)
 
     @Column(name="DOB", length=10)
@@ -138,145 +94,35 @@ private String homeLocation;
 
     
 
-    @Column(name="gender")
-    public String getGender() {
-        return this.gender;
+    @Column(name="email")
+    public String getEmail() {
+        return this.email;
     }
     
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    
-
-    @Column(name="password")
-    public String getPassword() {
-        return this.password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     
 
-    @Column(name="homeDoor")
-    public String getHomeDoor() {
-        return this.homeDoor;
+    @Column(name="emerContactLandline")
+    public String getEmerContactLandline() {
+        return this.emerContactLandline;
     }
     
-    public void setHomeDoor(String homeDoor) {
-        this.homeDoor = homeDoor;
-    }
-
-    
-
-    @Column(name="homeCity")
-    public String getHomeCity() {
-        return this.homeCity;
-    }
-    
-    public void setHomeCity(String homeCity) {
-        this.homeCity = homeCity;
+    public void setEmerContactLandline(String emerContactLandline) {
+        this.emerContactLandline = emerContactLandline;
     }
 
     
 
-    @Column(name="homeState")
-    public String getHomeState() {
-        return this.homeState;
+    @Column(name="emerContactMobile")
+    public String getEmerContactMobile() {
+        return this.emerContactMobile;
     }
     
-    public void setHomeState(String homeState) {
-        this.homeState = homeState;
-    }
-
-    
-
-    @Column(name="homePincode")
-    public Integer getHomePincode() {
-        return this.homePincode;
-    }
-    
-    public void setHomePincode(Integer homePincode) {
-        this.homePincode = homePincode;
-    }
-
-    
-
-    @Column(name="officeDoor")
-    public String getOfficeDoor() {
-        return this.officeDoor;
-    }
-    
-    public void setOfficeDoor(String officeDoor) {
-        this.officeDoor = officeDoor;
-    }
-
-    
-
-    @Column(name="officeLocation")
-    public String getOfficeLocation() {
-        return this.officeLocation;
-    }
-    
-    public void setOfficeLocation(String officeLocation) {
-        this.officeLocation = officeLocation;
-    }
-
-    
-
-    @Column(name="officeCity")
-    public String getOfficeCity() {
-        return this.officeCity;
-    }
-    
-    public void setOfficeCity(String officeCity) {
-        this.officeCity = officeCity;
-    }
-
-    
-
-    @Column(name="officeState")
-    public String getOfficeState() {
-        return this.officeState;
-    }
-    
-    public void setOfficeState(String officeState) {
-        this.officeState = officeState;
-    }
-
-    
-
-    @Column(name="officePincode")
-    public Integer getOfficePincode() {
-        return this.officePincode;
-    }
-    
-    public void setOfficePincode(Integer officePincode) {
-        this.officePincode = officePincode;
-    }
-
-    
-
-    @Column(name="mobile")
-    public Integer getMobile() {
-        return this.mobile;
-    }
-    
-    public void setMobile(Integer mobile) {
-        this.mobile = mobile;
-    }
-
-    
-
-    @Column(name="landline")
-    public Integer getLandline() {
-        return this.landline;
-    }
-    
-    public void setLandline(Integer landline) {
-        this.landline = landline;
+    public void setEmerContactMobile(String emerContactMobile) {
+        this.emerContactMobile = emerContactMobile;
     }
 
     
@@ -303,24 +149,46 @@ private String homeLocation;
 
     
 
-    @Column(name="emerContactMobile")
-    public String getEmerContactMobile() {
-        return this.emerContactMobile;
+    @Column(name="firstname")
+    public String getFirstname() {
+        return this.firstname;
     }
     
-    public void setEmerContactMobile(String emerContactMobile) {
-        this.emerContactMobile = emerContactMobile;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     
 
-    @Column(name="emerContactLandline")
-    public String getEmerContactLandline() {
-        return this.emerContactLandline;
+    @Column(name="gender")
+    public String getGender() {
+        return this.gender;
     }
     
-    public void setEmerContactLandline(String emerContactLandline) {
-        this.emerContactLandline = emerContactLandline;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    
+
+    @Column(name="homeCity")
+    public String getHomeCity() {
+        return this.homeCity;
+    }
+    
+    public void setHomeCity(String homeCity) {
+        this.homeCity = homeCity;
+    }
+
+    
+
+    @Column(name="homeDoor")
+    public String getHomeDoor() {
+        return this.homeDoor;
+    }
+    
+    public void setHomeDoor(String homeDoor) {
+        this.homeDoor = homeDoor;
     }
 
     
@@ -332,6 +200,138 @@ private String homeLocation;
     
     public void setHomeLocation(String homeLocation) {
         this.homeLocation = homeLocation;
+    }
+
+    
+
+    @Column(name="homePincode")
+    public Integer getHomePincode() {
+        return this.homePincode;
+    }
+    
+    public void setHomePincode(Integer homePincode) {
+        this.homePincode = homePincode;
+    }
+
+    
+
+    @Column(name="homeState")
+    public String getHomeState() {
+        return this.homeState;
+    }
+    
+    public void setHomeState(String homeState) {
+        this.homeState = homeState;
+    }
+
+    
+
+    @Column(name="landline")
+    public Integer getLandline() {
+        return this.landline;
+    }
+    
+    public void setLandline(Integer landline) {
+        this.landline = landline;
+    }
+
+    
+
+    @Column(name="lastname")
+    public String getLastname() {
+        return this.lastname;
+    }
+    
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    
+
+    @Column(name="mobile")
+    public Integer getMobile() {
+        return this.mobile;
+    }
+    
+    public void setMobile(Integer mobile) {
+        this.mobile = mobile;
+    }
+
+    
+
+    @Column(name="officeCity")
+    public String getOfficeCity() {
+        return this.officeCity;
+    }
+    
+    public void setOfficeCity(String officeCity) {
+        this.officeCity = officeCity;
+    }
+
+    
+
+    @Column(name="officeDoor")
+    public String getOfficeDoor() {
+        return this.officeDoor;
+    }
+    
+    public void setOfficeDoor(String officeDoor) {
+        this.officeDoor = officeDoor;
+    }
+
+    
+
+    @Column(name="officeLocation")
+    public String getOfficeLocation() {
+        return this.officeLocation;
+    }
+    
+    public void setOfficeLocation(String officeLocation) {
+        this.officeLocation = officeLocation;
+    }
+
+    
+
+    @Column(name="officePincode")
+    public Integer getOfficePincode() {
+        return this.officePincode;
+    }
+    
+    public void setOfficePincode(Integer officePincode) {
+        this.officePincode = officePincode;
+    }
+
+    
+
+    @Column(name="officeState")
+    public String getOfficeState() {
+        return this.officeState;
+    }
+    
+    public void setOfficeState(String officeState) {
+        this.officeState = officeState;
+    }
+
+    
+
+    @Column(name="password")
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
+
+    @Column(name="username")
+    public String getUsername() {
+        return this.username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
     }
 
 

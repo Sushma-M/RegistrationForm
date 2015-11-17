@@ -19,7 +19,7 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 
 
     $scope.UserDetailsLiveform1Beforeservicecall = function($event, $operation, $data) {
-        debugger
+        //debugger
     };
 
 }]);
@@ -40,18 +40,27 @@ Application.$controller("UserDetailsLiveform1Controller", ["$scope",
 
         $scope.emailChange = function($event, $isolateScope) {
             //debugger
-            //if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/.test($isolateScope.datavalue) === true) {
-            $scope.Variables.RegFormDBExecuteEmailIDexistCheck.setInput("emailID", $isolateScope.datavalue);
-            $scope.Variables.RegFormDBExecuteEmailIDexistCheck.update();
-            /*} else {
-                $scope.Widgets.message1.caption = "Please provide valid Email"
-            }*/
+            if (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/.test($isolateScope.datavalue) === true) {
+                $scope.Variables.RegFormDBExecuteEmailIDexistCheck.setInput("emailID", $isolateScope.datavalue);
+                $scope.Variables.RegFormDBExecuteEmailIDexistCheck.update();
+            } else {
+                $scope.Widgets.message1.caption = "Please provide valid Email";
+                $scope.Widgets.message1.show = true;
+                $scope.Widgets.message2.show = false;
+                $scope.Widgets.message6.show = false;
+            }
         };
 
 
         $scope.usernameChange = function($event, $isolateScope) {
+            //debugger
+            //if ($isolateScope.datavalue > 0 || $isolateScope.datavalue !== undefined) {
             $scope.Variables.RegFormDBExecuteUsernameExistCheck.setInput("username", $isolateScope.datavalue);
             $scope.Variables.RegFormDBExecuteUsernameExistCheck.update();
+            /*} else {
+                $scope.Widgets.message7.show = false;
+                $scope.Widgets.message3.show = false;
+            }*/
         };
 
 
@@ -69,11 +78,29 @@ Application.$controller("UserDetailsLiveform1Controller", ["$scope",
         $scope.custom1Change = function($event, $isolateScope) {
             //debugger
             if ($scope.Widgets.UserDetailsLiveform1.Widgets.password.datavalue === $isolateScope.datavalue) {
-                $scope.Widgets.message1.show = false;
+                $scope.Widgets.message5.show = false;
+                $scope.Widgets.message9.show = true;
             } else {
-                $scope.Widgets.message1.caption = "Passwords does not match";
-                $scope.Widgets.message1.show = true;
+                //$scope.Widgets.message5.caption = "Passwords does not match";
+                $scope.Widgets.message5.show = true;
+                $scope.Widgets.message9.show = false;
             }
+        };
+
+        $scope.passwordChange = function($event, $isolateScope) {
+            if (/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test($isolateScope.datavalue) === true) {
+                $scope.Widgets.message4.show = false;
+                $scope.Widgets.message8.show = true;
+            } else {
+                $scope.Widgets.message4.show = true;
+                $scope.Widgets.message8.show = false;
+            }
+        };
+
+
+        $scope.dobChange = function($event, $isolateScope) {
+            debugger
+            //var diffAge  =  - $isolateScope.datavalue
         };
 
     }

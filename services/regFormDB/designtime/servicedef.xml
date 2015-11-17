@@ -11,32 +11,29 @@
     <dataobjects>
         <dataobject javaType="com.registrationform.regformdb.UserDetails">
             <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
-            <element name="email" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="username" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="firstname" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="lastname" typeRef="java.lang.String" isList="false" allowNull="true"/>
             <element name="dob" typeRef="java.util.Date" isList="false" allowNull="true"/>
-            <element name="gender" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="password" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="homeDoor" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="homeCity" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="homeState" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="homePincode" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
-            <element name="officeDoor" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="officeLocation" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="officeCity" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="officeState" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="officePincode" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
-            <element name="mobile" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
-            <element name="landline" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="email" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="emerContactLandline" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="emerContactMobile" typeRef="java.lang.String" isList="false" allowNull="true"/>
             <element name="emerPersonName" typeRef="java.lang.String" isList="false" allowNull="true"/>
             <element name="emerRelation" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="emerContactMobile" typeRef="java.lang.String" isList="false" allowNull="true"/>
-            <element name="emerContactLandline" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="firstname" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="gender" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="homeCity" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="homeDoor" typeRef="java.lang.String" isList="false" allowNull="true"/>
             <element name="homeLocation" typeRef="java.lang.String" isList="false" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="regFormDBemailIDexistCheckrtnType">
-            <element name="ID" typeRef="java.lang.Integer"/>
+            <element name="homePincode" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="homeState" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="landline" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="lastname" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="mobile" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="officeCity" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="officeDoor" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="officeLocation" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="officePincode" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="officeState" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="password" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="username" typeRef="java.lang.String" isList="false" allowNull="true"/>
         </dataobject>
         <dataobject javaType="regFormDBusernameExistCheckrtnType">
             <element name="ID" typeRef="java.lang.Integer"/>
