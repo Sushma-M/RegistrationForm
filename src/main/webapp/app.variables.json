@@ -1,37 +1,14 @@
 {
-	"goToPage_Main": {
-		"name": "goToPage_Main",
-		"owner": "App",
-		"operation": "gotoPage",
-		"pageName": "Main",
-		"dataBinding": {},
-		"pageTransitions": "none",
-		"category": "wm.NavigationVariable",
-		"_id": "wm-goToPage_Main-wm.NavigationVariable1389180517517"
-	},
-	"supportedLocale": {
-		"name": "supportedLocale",
+	"logoutVariable": {
 		"type": "string",
-		"isList": false,
 		"owner": "App",
-		"dataSet": {
-			"en": "English"
-		},
-		"dataBinding": [
-			{
-				"name": "dataSet",
-				"type": "object",
-				"fields": [
-					{
-						"name": "dataValue",
-						"type": "string"
-					}
-				]
-			}
-		],
 		"saveInPhonegap": false,
-		"category": "wm.Variable",
-		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"redirectTo": "Login",
+		"useDefaultSuccessHandler": true,
+		"category": "wm.LogoutVariable",
+		"_id": "wm-logoutVariable-wm.LogoutVariable-1447420940610"
 	},
 	"RegFormDBUserDetailsData": {
 		"name": "RegFormDBUserDetailsData",
@@ -157,13 +134,8 @@
 		"liveSource": "regFormDB",
 		"ignoreCase": false,
 		"matchMode": "start",
-		"category": "wm.LiveVariable",
-		"isDefault": true,
-		"dbSystem": "MySQL",
-		"_id": "wm-RegFormDBUserDetailsData-wm.LiveVariable-1447335315900",
+		"bindCount": 4,
 		"package": "com.registrationform.regformdb.UserDetails",
-		"tableName": "userDetails",
-		"tableType": "TABLE",
 		"propertiesMap": {
 			"columns": [
 				{
@@ -510,124 +482,13 @@
 			"fullyQualifiedName": "com.registrationform.regformdb.UserDetails",
 			"tableType": "TABLE"
 		},
-		"bindCount": 4,
-		"filterFields": {}
-	},
-	"GroupktInvoke": {
-		"name": "GroupktInvoke",
-		"type": "groupkt.RootResponse",
-		"isList": false,
-		"owner": "App",
-		"dataSet": {
-			"dataValue": ""
-		},
-		"dataBinding": [
-			{
-				"name": "dataBinding",
-				"type": "object",
-				"fields": []
-			}
-		],
-		"saveInPhonegap": false,
-		"firstRow": 0,
-		"maxResults": 20,
-		"designMaxResults": 10,
-		"service": "groupkt",
-		"operation": "invoke",
-		"operationType": "get",
-		"startUpdate": true,
-		"autoUpdate": false,
-		"inFlightBehavior": "executeLast",
-		"transformationRequired": false,
-		"serviceType": "RestService",
-		"category": "wm.ServiceVariable",
+		"_id": "wm-RegFormDBUserDetailsData-wm.LiveVariable-1447335315900",
 		"isDefault": true,
-		"wmServiceOperationInfo": {
-			"methodType": "get",
-			"name": "invoke",
-			"relativePath": "/groupkt/invoke",
-			"consumes": [
-				"text/xml"
-			],
-			"parameters": []
-		},
-		"_id": "wm-GroupktInvoke-wm.ServiceVariable-1447348733719"
-	},
-	"RegFormDBExecuteEmailIDexistCheck": {
-		"name": "RegFormDBExecuteEmailIDexistCheck",
-		"type": "regFormDBemailIDexistCheckrtnType",
-		"isList": false,
-		"owner": "App",
-		"dataSet": {
-			"dataValue": ""
-		},
-		"dataBinding": [
-			{
-				"name": "dataBinding",
-				"type": "object",
-				"fields": [
-					{
-						"name": "emailID",
-						"type": "string"
-					},
-					{
-						"name": "page",
-						"type": "integer"
-					},
-					{
-						"name": "size",
-						"type": "integer"
-					},
-					{
-						"name": "sort",
-						"type": "string"
-					}
-				]
-			}
-		],
-		"saveInPhonegap": false,
-		"firstRow": 0,
-		"maxResults": 20,
-		"designMaxResults": 10,
-		"service": "regFormDB",
-		"operation": "executeEmailIDexistCheck",
-		"operationType": "get",
-		"startUpdate": false,
-		"autoUpdate": false,
-		"inFlightBehavior": "executeLast",
-		"transformationRequired": false,
-		"onSuccess": "RegFormDBExecuteEmailIDexistCheckonSuccess($event, $scope)",
-		"serviceType": "DataService",
-		"category": "wm.ServiceVariable",
-		"isDefault": true,
-		"wmServiceOperationInfo": {
-			"methodType": "get",
-			"name": "executeEmailIDexistCheck",
-			"relativePath": "/regFormDB/queryExecutor/queries/emailIDexistCheck",
-			"parameters": [
-				{
-					"name": "emailID",
-					"parameterType": "query",
-					"type": "string"
-				},
-				{
-					"name": "page",
-					"parameterType": "query",
-					"type": "integer"
-				},
-				{
-					"name": "size",
-					"parameterType": "query",
-					"type": "integer"
-				},
-				{
-					"name": "sort",
-					"parameterType": "query",
-					"type": "string"
-				}
-			]
-		},
-		"_id": "wm-RegFormDBExecuteEmailIDexistCheck-wm.ServiceVariable-1447392538066"
+		"tableName": "userDetails",
+		"dbSystem": "MySQL",
+		"category": "wm.LiveVariable",
+		"filterFields": {},
+		"tableType": "TABLE"
 	},
 	"RegFormDBExecuteUsernameExistCheck": {
 		"name": "RegFormDBExecuteUsernameExistCheck",
@@ -673,13 +534,11 @@
 		"inFlightBehavior": "executeLast",
 		"transformationRequired": false,
 		"onSuccess": "RegFormDBExecuteUsernameExistCheckonSuccess($event, $scope)",
-		"serviceType": "DataService",
-		"category": "wm.ServiceVariable",
-		"isDefault": true,
+		"serviceSubType": "query",
 		"wmServiceOperationInfo": {
-			"methodType": "get",
-			"name": "executeUsernameExistCheck",
 			"relativePath": "/regFormDB/queryExecutor/queries/usernameExistCheck",
+			"httpMethod": "get",
+			"name": "executeUsernameExistCheck",
 			"parameters": [
 				{
 					"name": "username",
@@ -703,16 +562,10 @@
 				}
 			]
 		},
-		"_id": "wm-RegFormDBExecuteUsernameExistCheck-wm.ServiceVariable-1447395688166"
-	},
-	"goToPage_Page": {
-		"owner": "App",
-		"operation": "gotoPage",
-		"pageName": "Page",
-		"dataBinding": {},
-		"pageTransitions": "none",
-		"category": "wm.NavigationVariable",
-		"_id": "wm-goToPage_Page-wm.NavigationVariable-1447420906137"
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-RegFormDBExecuteUsernameExistCheck-wm.ServiceVariable-1447395688166",
+		"isDefault": true
 	},
 	"loginVariable": {
 		"type": "string",
@@ -747,16 +600,125 @@
 		"category": "wm.LoginVariable",
 		"_id": "wm-loginVariable-wm.LoginVariable-1447420940609"
 	},
-	"logoutVariable": {
-		"type": "string",
+	"goToPage_Page": {
 		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Page",
+		"dataBinding": {},
+		"pageTransitions": "none",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage_Page-wm.NavigationVariable-1447420906137"
+	},
+	"supportedLocale": {
+		"name": "supportedLocale",
+		"type": "string",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"en": "English"
+		},
+		"dataBinding": [
+			{
+				"name": "dataSet",
+				"type": "object",
+				"fields": [
+					{
+						"name": "dataValue",
+						"type": "string"
+					}
+				]
+			}
+		],
 		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-supportedLocale-wm.Variable1402640443182"
+	},
+	"RegFormDBExecuteEmailIDexistCheck": {
+		"name": "RegFormDBExecuteEmailIDexistCheck",
+		"type": "regFormDBemailIDexistCheckrtnType",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": [
+					{
+						"name": "emailID",
+						"type": "string"
+					},
+					{
+						"name": "page",
+						"type": "integer"
+					},
+					{
+						"name": "size",
+						"type": "integer"
+					},
+					{
+						"name": "sort",
+						"type": "string"
+					}
+				]
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "regFormDB",
+		"operation": "executeEmailIDexistCheck",
+		"operationType": "get",
+		"startUpdate": false,
+		"autoUpdate": false,
 		"inFlightBehavior": "executeLast",
 		"transformationRequired": false,
-		"redirectTo": "Login",
-		"useDefaultSuccessHandler": true,
-		"category": "wm.LogoutVariable",
-		"_id": "wm-logoutVariable-wm.LogoutVariable-1447420940610"
+		"onSuccess": "RegFormDBExecuteEmailIDexistCheckonSuccess($event, $scope)",
+		"serviceSubType": "query",
+		"wmServiceOperationInfo": {
+			"relativePath": "/regFormDB/queryExecutor/queries/emailIDexistCheck",
+			"httpMethod": "get",
+			"name": "executeEmailIDexistCheck",
+			"parameters": [
+				{
+					"name": "emailID",
+					"parameterType": "query",
+					"type": "string"
+				},
+				{
+					"name": "page",
+					"parameterType": "query",
+					"type": "integer"
+				},
+				{
+					"name": "size",
+					"parameterType": "query",
+					"type": "integer"
+				},
+				{
+					"name": "sort",
+					"parameterType": "query",
+					"type": "string"
+				}
+			]
+		},
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-RegFormDBExecuteEmailIDexistCheck-wm.ServiceVariable-1447392538066",
+		"isDefault": true
+	},
+	"goToPage_Main": {
+		"name": "goToPage_Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"pageTransitions": "none",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage_Main-wm.NavigationVariable1389180517517"
 	},
 	"loggedInUser": {
 		"name": "loggedInUser",
@@ -764,12 +726,12 @@
 		"isList": false,
 		"owner": "App",
 		"dataSet": {
-			"name": "",
-			"id": "",
 			"tenantId": "",
-			"isAuthenticated": false,
+			"id": "",
 			"isSecurityEnabled": true,
-			"roles": []
+			"isAuthenticated": false,
+			"roles": [],
+			"name": ""
 		},
 		"dataBinding": [
 			{
@@ -786,5 +748,45 @@
 		"saveInPhonegap": false,
 		"category": "wm.Variable",
 		"_id": "wm-loggedInUser-wm.Variable-1447420940610"
+	},
+	"GroupktInvoke": {
+		"name": "GroupktInvoke",
+		"type": "groupkt.RootResponse",
+		"isList": false,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"service": "groupkt",
+		"operation": "invoke",
+		"operationType": "get",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"wmServiceOperationInfo": {
+			"relativePath": "/groupkt/invoke",
+			"methodType": "get",
+			"name": "invoke",
+			"parameters": [],
+			"consumes": [
+				"text/xml"
+			]
+		},
+		"serviceType": "RestService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-GroupktInvoke-wm.ServiceVariable-1447348733719",
+		"isDefault": true
 	}
 }

@@ -1,7 +1,3 @@
-/*Copyright (c) 2015-2016 gmail.com All Rights Reserved.
- This software is the confidential and proprietary information of gmail.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with gmail.com*/
-
 
 package com.registrationform.regformdb.service;
 
@@ -35,19 +31,19 @@ public class RegFormDBQueryExecutorServiceImpl implements RegFormDBQueryExecutor
 
 	@Transactional(value = "regFormDBTransactionManager")
 	@Override
-	public Page<Object> executeUsernameExistCheck(Pageable pageable, java.lang.String username)
-	throws QueryParameterMismatchException{
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("username", username);
-        return queryExecutor.executeNamedQuery("usernameExistCheck", params, pageable);
-	}
-	@Transactional(value = "regFormDBTransactionManager")
-	@Override
 	public Page<Object> executeEmailIDexistCheck(Pageable pageable, java.lang.String emailID)
 	throws QueryParameterMismatchException{
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("emailID", emailID);
         return queryExecutor.executeNamedQuery("emailIDexistCheck", params, pageable);
+	}
+	@Transactional(value = "regFormDBTransactionManager")
+	@Override
+	public Page<Object> executeUsernameExistCheck(Pageable pageable, java.lang.String username)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("username", username);
+        return queryExecutor.executeNamedQuery("usernameExistCheck", params, pageable);
 	}
 
 	@Transactional(value = "regFormDBTransactionManager")

@@ -19,7 +19,7 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 
 
     $scope.UserDetailsLiveform1Beforeservicecall = function($event, $operation, $data) {
-        //debugger
+        debugger
     };
 
 }]);
@@ -99,8 +99,21 @@ Application.$controller("UserDetailsLiveform1Controller", ["$scope",
 
 
         $scope.dobChange = function($event, $isolateScope) {
-            debugger
-            //var diffAge  =  - $isolateScope.datavalue
+            //debugger
+            /*if (((new Date().getTime() - new Date($isolateScope.datavalue).getTime()) / (1000 * 3600 * 24)) / 365.25 > 18) {
+                $scope.Widgets.message10.show = true;
+                $scope.Widgets.message11.show = false;
+            } else {
+                $scope.Widgets.message11.show = true;
+                $scope.Widgets.message10.show = false;
+            }*/
+            if (moment.duration(moment(new Date()).diff($isolateScope.datavalue)).asYears() > 18) {
+                $scope.Widgets.message10.show = true;
+                $scope.Widgets.message11.show = false;
+            } else {
+                $scope.Widgets.message11.show = true;
+                $scope.Widgets.message10.show = false;
+            }
         };
 
     }
