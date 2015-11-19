@@ -18,8 +18,7 @@
                     <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" action="addNewRow()" icon="new"></wm-grid-action>
                 </wm-grid>
                 <wm-liveform novalidate="false" title="Form" name="UserDetailsLiveform1" dataset="bind:Variables.RegFormDBUserDetailsData.dataSet" formtype="inline" defaultmode="Edit" captionalign="left" captionposition="left" insertmessage="User registered successfully"
-                updatemessage="User registered successfully" deletemessage="User registered successfully" on-beforeservicecall="UserDetailsLiveform1Beforeservicecall($event, $operation, $data)" horizontalalign="left" autocomplete="false" iconclass="glyphicon glyphicon-user fa-spin"
-                whitespace="pre-line">
+                updatemessage="User registered successfully" deletemessage="User registered successfully" on-beforeservicecall="UserDetailsLiveform1Beforeservicecall($event, $operation, $data)" horizontalalign="left" autocomplete="false" whitespace="pre-line">
                     <wm-layoutgrid name="layoutgrid1">
                         <wm-gridrow name="gridrow11">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn14"></wm-gridcolumn>
@@ -203,6 +202,12 @@
                         <wm-label class="col-md-3" name="label3_1"></wm-label>
                         <wm-container class="col-md-9" name="container8">
                             <wm-date name="date1"></wm-date>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-composite name="composite5">
+                        <wm-label class="col-md-3" name="label4"></wm-label>
+                        <wm-container class="col-md-9" name="container9">
+                            <wm-switch datavalue="yes" name="switch3"></wm-switch>
                         </wm-container>
                     </wm-composite>
                 </wm-liveform>
